@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛰️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<title>Data Engineering & Automation — Zach Wei</title>
+</head>
+<body data-track="engineering">
+<main>
+  <section class="track-hero">
+    <div class="wrap">
+      <p class="kicker">Data Engineering & Automation</p>
+      <h1>I build pipelines that keep running when nobody is watching.</h1>
+      <p class="lede">ETL, API integrations, high-volume log processing, and automation that takes repetitive work off people’s plates, from Databricks reporting to production pipelines at Tencent.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Results</h2>
+      <div class="stats">
+        <div class="stat"><b>35M events a day</b><p>through a firewall log pipeline, with the schema cut from 10,241 to 67 fields</p></div>
+        <div class="stat"><b>0.4% of quota</b><p>API usage after rebuilding a pipeline that kept hitting rate limits</p></div>
+        <div class="stat"><b>60% less</b><p>manual work after automating weekly data reconciliation in Python</p></div>
+        <div class="stat"><b>1,308 VLAN IDs</b><p>recovered across 219 switches, data once assumed uncollectable</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Relevant experience</h2>
+      <ol class="timeline">
+        <li><div class="when">Jun 2026 – present<small>Tencent Americas</small></div><div><h3>AIOps Platform Engineer Intern</h3><p class="org">Overseas IT, Network team</p><ul>
+          <li>Built an observability pipeline handling 35M events a day and reduced its schema from 10,241 fields to 67.</li>
+          <li>Rebuilt a ThousandEyes data pipeline that was failing on rate limits; it now runs across 19 offices on 0.4% of API quota.</li>
+          <li>Built the sync pipelines that keep a 676-device inventory database accurate, and recovered 1,308 VLAN IDs across 219 switches.</li></ul></div></li>
+        <li><div class="when">Sep – Dec 2025<small>Tencent Americas</small></div><div><h3>Analytics Engineer Intern</h3><p class="org">Overseas IT, IT Automation team</p><ul>
+          <li>Built an n8n workflow that matches security advisories against the device inventory and posts real-time Slack alerts.</li></ul></div></li>
+        <li><div class="when">Jul 2023 – Jul 2024<small>Shamrock Foods</small></div><div><h3>Pricing Analyst</h3><p class="org">Phoenix, AZ</p><ul>
+          <li>Built SQL ETL pipelines in Databricks on Azure behind automated pricing reports for the national sales team.</li>
+          <li>Automated weekly data reconciliation in Python, cutting manual work by 60%.</li></ul></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Projects</h2>
+      <ul class="plist">
+        <li>
+          <h3>Volunteer data pipeline</h3>
+          <p class="meta">Tri-City Volunteers · 2025</p>
+          <p>Pulls data from Galaxy Digital’s REST API into Google Looker Studio automatically, so the nonprofit’s dashboards stay current without manual exports.</p>
+          <ul class="plinks"><li><span>Code</span><a href="https://github.com/Wyf09140/tcv_volunteer_data_automation" target="_blank" rel="noopener">github.com/Wyf09140/tcv_volunteer_data_automation</a></li></ul>
+        </li>
+        <li>
+          <h3>Church network monitor</h3>
+          <p class="meta">Personal project · 2025</p>
+          <p>Python app that polls UniFi devices to count live attendance and flag unknown devices, with n8n webhook alerts.</p>
+        </li>
+        <li>
+          <h3>Cross-platform ads performance</h3>
+          <p class="meta">Practice project, synthetic data</p>
+          <p>Compared CTR and CPC by platform, industry and country across 1,800 daily rows of Google, Meta and TikTok data, with a rolling z-score monitor on weekly spend.</p>
+          <ul class="plinks"><li><span>Code</span><a href="https://github.com/Wyf09140/tiktok-ads-health-framework" target="_blank" rel="noopener">github.com/Wyf09140/tiktok-ads-health-framework</a></li></ul>
+        </li>
+      </ul>
+      <p class="more">More code on <a href="https://github.com/wyf09140" target="_blank" rel="noopener">github.com/wyf09140</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Toolkit</h2>
+      <div class="tools">
+        <div><h3>Languages & data</h3><ul class="chips"><li>Python</li><li>SQL</li><li>PostgreSQL</li><li>pandas</li><li>REST APIs</li></ul></div>
+        <div><h3>Platforms</h3><ul class="chips"><li>Databricks</li><li>Azure</li><li>Docker</li><li>Linux</li></ul></div>
+        <div><h3>Pipelines & automation</h3><ul class="chips"><li>n8n</li><li>Vector</li><li>OpenObserve</li><li>Grafana</li><li>Slack webhooks</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="contact-slot"></div>
+</main>
+<script src="site.js"></script>
+</body>
+</html>

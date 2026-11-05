@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛰️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<title>AIOps & AI Automation — Zach Wei</title>
+</head>
+<body data-track="aiops">
+<main>
+  <section class="track-hero">
+    <div class="wrap">
+      <p class="kicker">AIOps & AI Automation</p>
+      <h1>I put LLMs to work on real operations, and check their work.</h1>
+      <p class="lede">At Tencent Americas I led a network inventory system (CMDB) from evaluation to production, then built LLM-powered alert and vulnerability triage on top of it.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Results</h2>
+      <div class="stats">
+        <div class="stat"><b>676 devices</b><p>across 19 global offices in one CMDB, built from scratch to production</p></div>
+        <div class="stat"><b>Days → &lt;1 hour</b><p>from vulnerability advisory to alert, via a PSIRT → CMDB → LLM pipeline</p></div>
+        <div class="stat"><b>24 agent skills</b><p>reusable AI workflows in Claude Code and WorkBuddy</p></div>
+        <div class="stat"><b>70+ switches</b><p>managed with Python and netmiko automation</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Relevant experience</h2>
+      <ol class="timeline">
+        <li><div class="when">Jun 2026 – present<small>Tencent Americas</small></div><div><h3>AIOps Platform Engineer Intern</h3><p class="org">Overseas IT, Network team · CMDB technical lead</p><ul>
+          <li>Took a Nautobot CMDB from vendor evaluation to production, unifying 676 devices across 19 offices into one source of truth.</li>
+          <li>Shipped an LLM daily alert digest and an LLM-assisted vulnerability pipeline that cut advisory-to-alert time from days to under an hour.</li>
+          <li>Wrote 24 reusable agent skills that codify network-ops workflows; every AI output is verified before it reaches production.</li>
+          <li>Automated configuration work across 70+ switches with Python and netmiko.</li></ul></div></li>
+        <li><div class="when">Sep – Dec 2025<small>Tencent Americas</small></div><div><h3>Analytics Engineer Intern</h3><p class="org">Overseas IT, IT Automation team</p><ul>
+          <li>Built an AI-driven n8n pipeline matching security advisories against CMDB inventory, with real-time Slack alerts.</li>
+          <li>Built Grafana + Zabbix monitoring for 8 global offices.</li></ul></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Projects</h2>
+      <ul class="plist">
+        <li>
+          <h3>Admissions chatbot</h3>
+          <p class="meta">Christian Witness Theological Seminary · 2026</p>
+          <p>LLM chatbot that answers prospective students’ questions from the seminary’s own materials. Built in Streamlit, shipped in two versions, and being added to the school website.</p>
+          <ul class="plinks"><li><span>Live app</span><a href="https://cwtsadbot-v2.streamlit.app" target="_blank" rel="noopener">cwtsadbot-v2.streamlit.app</a></li></ul>
+        </li>
+        <li>
+          <h3>Vulnerability triage pipeline</h3>
+          <p class="meta">Tencent Americas · 2025–2026</p>
+          <p>Matches vendor security advisories to the device inventory and triages them with an LLM. Advisory-to-alert time went from days to under an hour.</p>
+        </li>
+        <li>
+          <h3>Daily alert digest</h3>
+          <p class="meta">Tencent Americas · 2026</p>
+          <p>LLM digest that condenses 300+ network alerts a day into the critical issues the team needs to act on.</p>
+        </li>
+        <li>
+          <h3>Church network monitor</h3>
+          <p class="meta">Personal project · 2025</p>
+          <p>Python app that polls UniFi devices to count live attendance and flag unknown devices, with n8n webhook alerts.</p>
+        </li>
+      </ul>
+      <p class="more">More code on <a href="https://github.com/wyf09140" target="_blank" rel="noopener">github.com/wyf09140</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Toolkit</h2>
+      <div class="tools">
+        <div><h3>AI & LLM</h3><ul class="chips"><li>Claude Code</li><li>Codex</li><li>Cursor</li><li>Gemini API</li><li>Tool calling</li><li>Text-to-SQL</li><li>n8n AI workflows</li></ul></div>
+        <div><h3>Network & inventory</h3><ul class="chips"><li>Nautobot</li><li>Zabbix / SNMP</li><li>ThousandEyes</li><li>netmiko</li><li>Cisco</li><li>Fortinet</li><li>Aruba</li></ul></div>
+        <div><h3>Observability</h3><ul class="chips"><li>Grafana</li><li>Prometheus</li><li>Alertmanager</li><li>OpenObserve</li><li>ServiceNow</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="contact-slot"></div>
+</main>
+<script src="site.js"></script>
+</body>
+</html>
