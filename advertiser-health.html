@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SMB Advertiser Health Analysis – Zach Wei</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F7F9; --surface:#FFFFFF; --ink:#1C2533; --muted:#5A6476; --rule:#D9DEE6;
+  --top:#2F5BEA; --mid:#8FA3C8; --tail:#D9962B; --warn-bg:#FFF4E0; --warn-ink:#7A4D00;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141922; --surface:#1B222D; --ink:#E6EAF0; --muted:#A3ADBD; --rule:#2E3846;
+    --top:#7C9BFF; --mid:#5D6F8F; --tail:#F0B24F; --warn-bg:#3A2B12; --warn-ink:#F6D39A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141922; --surface:#1B222D; --ink:#E6EAF0; --muted:#A3ADBD; --rule:#2E3846;
+  --top:#7C9BFF; --mid:#5D6F8F; --tail:#F0B24F; --warn-bg:#3A2B12; --warn-ink:#F6D39A;
+  color-scheme: dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.6;font-variant-numeric:tabular-nums}
+main{max-width:760px;margin:0 auto;padding:56px 24px 80px}
+a{color:var(--top);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--top);outline-offset:3px;border-radius:2px}
+header p.who{margin:0;color:var(--muted);font-size:15px}
+h1{font-size:clamp(34px,6vw,48px);line-height:1.08;font-weight:700;letter-spacing:-.02em;margin:6px 0 14px}
+.lede{font-size:19px;color:var(--muted);max-width:60ch;margin:0}
+nav.links{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:20px;font-size:15px}
+section.project{margin-top:64px;padding-top:28px;border-top:1px solid var(--rule)}
+h2{font-size:28px;line-height:1.2;font-weight:700;letter-spacing:-.01em;margin:0 0 6px}
+.source{color:var(--muted);font-size:15px;margin:0 0 28px}
+h3{font-size:17px;font-weight:600;margin:32px 0 6px}
+p{margin:0 0 12px;max-width:68ch}
+ul{margin:0 0 12px;padding-left:20px;max-width:68ch}
+li{margin-bottom:6px}
+figure{margin:28px 0;padding:22px 22px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:10px}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px}
+.strip-label{font-size:14px;color:var(--muted);margin:0 0 6px}
+.strip{display:flex;height:34px;border-radius:5px;overflow:hidden;margin-bottom:16px}
+.strip span{display:flex;align-items:center;padding:0 10px;font-size:13px;font-weight:600;color:#fff;white-space:nowrap}
+.strip .t{background:var(--top)} .strip .m{background:var(--mid)} .strip .l{background:var(--tail);color:#2a1a00}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.bars{display:grid;grid-template-columns:110px 1fr 48px;gap:10px 12px;align-items:center;font-size:15px}
+.bars .track{height:14px;background:var(--rule);border-radius:3px;overflow:hidden}
+.bars .fill{height:100%;border-radius:3px}
+.bars .v{text-align:right;font-weight:600}
+.note{background:var(--warn-bg);color:var(--warn-ink);padding:12px 16px;border-radius:8px;font-size:15px;max-width:68ch}
+.limits{color:var(--muted);font-size:15px}
+footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--rule);color:var(--muted);font-size:15px}
+@media (max-width:520px){ main{padding:36px 18px 64px} .bars{grid-template-columns:86px 1fr 42px;font-size:14px} .strip span{font-size:12px;padding:0 6px} }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="who">Yifan (Zach) Wei, Data Business Analyst</p>
+    <h1>Project details</h1>
+    <p class="lede">Analyses built around one question a scaled sales team asks every week: which advertisers need attention, and why.</p>
+    <nav class="links" aria-label="Related links">
+      <a href="analytics.html">← Back to Data Analytics</a>
+      <a href="https://www.linkedin.com/in/yfw">LinkedIn</a>
+      <a href="https://github.com/wyf09140">GitHub</a>
+      <a href="mailto:zw09140work@outlook.com">zw09140work@outlook.com</a>
+    </nav>
+  </header>
+
+  <section class="project" id="advertiser-health">
+    <h2>SMB advertiser health analysis</h2>
+    <p class="source">Real data from Google Ads Transparency Center, using the official public dump (BigQuery: <code>bigquery-public-data.google_ads_transparency_center.creative_stats</code>). Built in Python.</p>
+
+    <h3>Business question</h3>
+    <p>Long-tail advertisers are the largest group, but they contribute little reach and churn fast. Where should a scaled sales team focus its activation and retention effort?</p>
+
+    <figure>
+      <p class="strip-label">Share of advertisers</p>
+      <div class="strip" role="img" aria-label="Top tier 10 percent, mid tier 40 percent, long tail 50 percent of advertisers">
+        <span class="t" style="width:10%">10%</span><span class="m" style="width:40%">40%</span><span class="l" style="width:50%">50%</span>
+      </div>
+      <p class="strip-label">Share of total reach</p>
+      <div class="strip" role="img" aria-label="Top tier 91 percent of reach, mid tier about 8.6 percent, long tail 0.4 percent">
+        <span class="t" style="width:91%">91%</span><span class="m" style="width:8.6%"></span><span class="l" style="width:0.4%"></span>
+      </div>
+      <div class="legend"><span><i style="background:var(--top)"></i>Top 10%</span><span><i style="background:var(--mid)"></i>Mid 40%</span><span><i style="background:var(--tail)"></i>Long tail 50% (0.4% of reach)</span></div>
+      <figcaption>The top tier of advertisers, ranked by estimated reach, holds 91% of all reach. 2,644 ads from 1,734 advertisers shown in the EU and UK.</figcaption>
+    </figure>
+
+    <h3>Data and method</h3>
+    <ul>
+      <li>2,644 ads from 1,734 advertisers shown in Germany, France, the UK, Italy, and the EEA, first shown from March 2023 to November 2026.</li>
+      <li>Advertisers tiered by estimated reach: Top 10%, Mid 40%, and Long tail 50%.</li>
+      <li>Churn is defined as no ad shown in the last 60 days of the data window.</li>
+      <li>Monthly cohort retention curves (M0 to M6), and weekly new-ad anomaly flags using an 8-week rolling baseline and z-score.</li>
+    </ul>
+
+    <figure>
+      <div class="bars" role="img" aria-label="Churn rate: top 10 percent 52 percent, mid 40 percent 57 percent, long tail 66 percent">
+        <span>Top 10%</span><div class="track"><div class="fill" style="width:52%;background:var(--top)"></div></div><span class="v">52%</span>
+        <span>Mid 40%</span><div class="track"><div class="fill" style="width:57%;background:var(--mid)"></div></div><span class="v">57%</span>
+        <span>Long tail</span><div class="track"><div class="fill" style="width:66%;background:var(--tail)"></div></div><span class="v">66%</span>
+      </div>
+      <figcaption>60-day churn rate by tier. Long-tail churn runs 14 points above the top tier.</figcaption>
+    </figure>
+
+    <h3>Key findings</h3>
+    <ul>
+      <li>Reach is highly concentrated: the top 10% hold 91%, and the long-tail 50% hold 0.4%.</li>
+      <li>Churn falls as advertisers grow: 66% in the long tail, 57% in the mid tier, and 52% in the top tier.</li>
+      <li>Long-tail advertisers run about 1 ad each, compared with 3.4 for the top tier.</li>
+      <li>The verticals with the highest churn (5+ advertisers) are mobile games at about 77%, furniture at about 70%, and fashion at about 64%. Skincare and fitness are lower, at about 43–44%.</li>
+      <li>Typical cohorts fall to 30–40% active by month 3.</li>
+    </ul>
+
+    <h3>Recommendations</h3>
+    <ul>
+      <li>Run early-life activation outreach in an advertiser’s first 90 days, before long-tail churn sets in.</li>
+      <li>Build re-engagement plays for each high-churn vertical, starting with mobile games and furniture.</li>
+      <li>Use the weekly new-ad anomaly monitor as an early-warning signal for the sales team.</li>
+    </ul>
+
+    <h3>Limitations</h3>
+    <p class="limits">This is Google data, not TikTok data. Reach is a range estimate, and there is no spend or conversion data. Verticals are mapped from advertiser-name keywords. The sample comes from one data shard and is not random. The framework itself transfers directly to TikTok’s Ad Library.</p>
+  </section>
+
+  <section class="project" id="practice">
+    <h2>Cross-platform ads performance practice</h2>
+    <p class="note">Practice project on a synthetic Kaggle dataset. The results are not business findings.</p>
+    <h3>What I built</h3>
+    <p>A pandas and matplotlib pipeline over 1,800 daily rows (Google, Meta, and TikTok, 2024): comparisons by platform, industry, and country on CTR and CPC, an 8-week rolling z-score monitor on weekly spend, and 9 charts. The pipeline is built to run on real platform data.</p>
+    <p><a href="https://github.com/Wyf09140/tiktok-ads-health-framework">View code on GitHub</a></p>
+  </section>
+
+  <footer>
+    <a href="analytics.html">← Back to Data Analytics</a>
+  </footer>
+</main>
+</body>
+</html>
